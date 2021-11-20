@@ -9,7 +9,7 @@ import { useRecoilState } from "recoil";
 import { accountState, activeState, contextState } from "../state";
 
 const web3 = new Web3(
-  "https://eth-mainnet.alchemyapi.io/v2/swr6SNhQWZKHYPHHlRaTwRGLfuWoYEN6"
+  "https://polygon-mumbai.g.alchemy.com/v2/ZoPCKJ_IBRTaiQTO80Z-rxQgcgvTTf-y"
 );
 
 const Header = () => {
@@ -90,7 +90,8 @@ const Header = () => {
           Kaikas 지갑을 설치한 후 이용할 수 있습니다.
           <a
             href="https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en"
-            className="alert-link ml-5">
+            className="alert-link ml-5"
+          >
             설치하기
           </a>
         </div>
@@ -111,7 +112,8 @@ const Header = () => {
               aria-expanded="false"
               aria-controls="navbarNavMenuLightEg"
               data-toggle="collapse"
-              data-target="#navbarNavMenuLightEg">
+              data-target="#navbarNavMenuLightEg"
+            >
               <i className="tio-menu-hamburger"></i>
             </button>
 
@@ -122,7 +124,8 @@ const Header = () => {
                     className={classnames("nav-link", {
                       active: location.pathname === "/",
                     })}
-                    to="/">
+                    to="/"
+                  >
                     HOME
                   </Link>
                 </li>
@@ -131,7 +134,8 @@ const Header = () => {
                     className={classnames("nav-link", {
                       active: location.pathname === "/ballots",
                     })}
-                    to="/ballots">
+                    to="/ballots"
+                  >
                     BALLOTS
                   </Link>
                 </li>
@@ -139,7 +143,7 @@ const Header = () => {
                   <li className="nav-item">
                     <div className="h3 mt-2">
                       <span className="badge badge-soft-dark">
-                        {_account.balance} ETH |{" "}
+                        {_account.balance} MATIC |{" "}
                         <span className="text-primary">
                           {_account.shortAddress}
                         </span>
@@ -151,12 +155,14 @@ const Header = () => {
                   <li className="nav-item">
                     <button
                       className="btn btn-sm btn-soft-secondary btn-wallet-connect"
-                      onClick={() => connectToKaikas()}>
+                      onClick={() => connectToKaikas()}
+                    >
                       Connect to wallet
                     </button>
                     <button
                       className="btn btn-sm btn-soft-secondary btn-wallet-connect"
-                      onClick={() => connectToMetamask()}>
+                      onClick={() => connectToMetamask()}
+                    >
                       Connect to wallet
                     </button>
                   </li>
