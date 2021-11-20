@@ -20,12 +20,13 @@ const Header = () => {
   useEffect(() => {
     accessToKaikas();
     initContext();
+    connectToMetamask();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);
 
   const initContext = () => {
     setContext({
-      hasKlaytn: typeof window.klaytn != "undefined",
+      hasKlaytn: typeof window.ethereum != "undefined",
     });
   };
 
