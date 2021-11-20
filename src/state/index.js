@@ -1,21 +1,21 @@
-import { atom } from 'recoil'
+import { atom } from "recoil";
 
 export const accountState = atom({
-    key: 'accountState', 
-    default: null
-})
+  key: "accountState",
+  default: null,
+});
 
 export const activeState = atom({
-    key: 'activeState',
-    default: false
-})
+  key: "activeState",
+  default: false,
+});
 
 export const contextState = atom({
-    key: 'contextState',
-    default: null
-})
+  key: "contextState",
+  default: null,
+});
 
 export const ballotState = atom({
-    key: 'ballotState',
-    default: []
-})
+  key: "ballotState",
+  default: [],
+});
