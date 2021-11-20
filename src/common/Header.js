@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Caver from "caver-js";
-import Web3 from "web3";
 import classnames from "classnames";
 
 import { Link, useLocation } from "react-router-dom";
@@ -8,9 +7,9 @@ import { formatBalance, shortAddress } from "../core/utils";
 import { useRecoilState } from "recoil";
 import { accountState, activeState, contextState } from "../state";
 
-const web3 = new Web3(
-  "https://polygon-mumbai.g.alchemy.com/v2/ZoPCKJ_IBRTaiQTO80Z-rxQgcgvTTf-y"
-);
+import { endpoint } from "../endpoint/endpoint";
+
+const web3 = endpoint;
 
 const Header = () => {
   const location = useLocation();
@@ -21,6 +20,7 @@ const Header = () => {
   useEffect(() => {
     accessToKaikas();
     initContext();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);
 
   const initContext = () => {
