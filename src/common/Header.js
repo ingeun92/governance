@@ -102,7 +102,7 @@ const Header = () => {
           <div className="navbar-nav-wrap">
             <div className="navbar-brand-wrapper">
               <Link className="navbar-brand" to="/" aria-label="Front">
-                <b>CURG</b> GOVERNANCE
+                <b>DAppO</b> DAO
               </Link>
             </div>
 

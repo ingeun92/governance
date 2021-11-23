@@ -14,6 +14,7 @@ import CVTView from "./views/CVTView";
 import CreateBallotView from "./views/CreateBallotView";
 import VoteCreateView from "./views/VoteCreateView";
 import VoteProceedView from "./views/VoteProceedView";
+import FundingView from "./views/FundingView";
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
             </Route>
             <Route path="/ballots">
               <BallotsView />
+            </Route>
+            <Route path="/funding">
+              <FundingView />
             </Route>
             <Route path="/">
               <HomeView />
