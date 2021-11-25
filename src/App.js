@@ -15,6 +15,7 @@ import CreateBallotView from "./views/CreateBallotView";
 import VoteCreateView from "./views/VoteCreateView";
 import VoteProceedView from "./views/VoteProceedView";
 import FundingView from "./views/FundingView";
+import FundingDetailView from "./views/FundingDetailView";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
           <Switch>
             <Route path="/vote/detail/:id">
               <BallotDetailView />
+            </Route>
+            <Route path="/funding/detail/:id">
+              <FundingDetailView />
             </Route>
             <Route path="/vote/proceed/:id">
               <VoteProceedView />

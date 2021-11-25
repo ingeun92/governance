@@ -12,21 +12,25 @@ const FundingListView = () => {
   const [fundings, setFundings] = useRecoilState(fundingState);
   const temp = [
     {
+      no: 0,
       title: "Ing's Project",
       desc: "Ing's Project to earn Funding",
       fund: 30000,
     },
     {
+      no: 1,
       title: "Hyun's Project",
       desc: "Hyun's Project to earn Funding",
       fund: 15000,
     },
     {
+      no: 2,
       title: "Sung's Project",
       desc: "Sung's Project to earn Funding",
       fund: 20000,
     },
     {
+      no: 3,
       title: "Jun's Project",
       desc: "Jun's Project to earn Funding",
       fund: 10000,
@@ -54,7 +58,7 @@ const FundingListView = () => {
                 class="h1 card-text mt-5 text-right"
               />
               <div class="col text-center">
-                <Link to={`/vote/detail/0`} class="btn btn-primary">
+                <Link to={`/funding/detail/${item.no}`} class="btn btn-primary">
                   Details
                 </Link>
               </div>

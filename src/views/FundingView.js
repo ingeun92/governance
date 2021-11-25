@@ -24,9 +24,9 @@ const FundingView = () => {
       <div className="page-header">
         <div className="row mt-5 align-items-end">
           <div className="col-lg-8">
-            <h2>펀딩</h2>
+            <h2>Funding</h2>
             <p className="p-0 m-0">
-              DAppO에서 진행 중인 펀딩 목록들 중 최대 6개까지 보여줍니다
+              Display up to 6 of the funding lists that are in progress on DAppO
             </p>
           </div>
         </div>
