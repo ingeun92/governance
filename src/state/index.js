@@ -19,3 +19,8 @@ export const ballotState = atom({
   key: "ballotState",
   default: [],
 });
+
+export const fundingState = atom({
+  key: "fundingState",
+  default: [],
+});

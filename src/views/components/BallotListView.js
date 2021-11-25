@@ -12,7 +12,7 @@ const ProposalView = ({ proposals, winner, ended }) => {
       <div className="col-md-12 text-left mb-3" key={value + String(index)}>
         <label className="input-label mb-0">
           안건 {index + 1}
-          {ended && winner == index && (
+          {ended && winner === index && (
             <span className="badge badge-soft-primary ml-1">채택</span>
           )}
         </label>
