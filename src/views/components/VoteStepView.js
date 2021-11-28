@@ -15,10 +15,10 @@ const VoteStepView = ({ activeId }) => {
             1
           </span>
           <div class="step-content">
-            <h4>투표권 생성</h4>
+            <h4>Create Voting Rights</h4>
             <p class="step-text">
-              보유한 CVT 토큰을 소각하여 본 안건에 대한 투표권을 얻는
-              과정입니다.
+              It is the process of incinerating the CVT token held and obtaining
+              voting rights on this agenda.
             </p>
           </div>
         </div>
@@ -35,11 +35,11 @@ const VoteStepView = ({ activeId }) => {
             2
           </span>
           <div class="step-content">
-            <h4>투표하기</h4>
+            <h4>Voting</h4>
             <p class="step-text">
-              과정1 에서 생성한 투표권을 이용하여 투표를 진행합니다. 입력한
-              투표권의 제곱근만큼만 영향력을 행사하는 제곱-투표 방식을 사용하고
-              있습니다.
+              Voting proceeds using the voting rights generated in Process 1. We
+              use a square-voting method that exerts influence only by the
+              square root of the right to vote entered.
             </p>
           </div>
         </div>

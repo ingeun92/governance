@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Caver from "caver-js";
 import classnames from "classnames";
 
@@ -6,6 +6,8 @@ import { Link, useLocation } from "react-router-dom";
 import { formatBalance, shortAddress } from "../core/utils";
 import { useRecoilState } from "recoil";
 import { accountState, activeState, contextState } from "../state";
+import { balanceOf } from "../core/cvt";
+import {} from "../core/dappo";
 
 import { endpoint } from "../endpoint/endpoint";
 
@@ -18,15 +20,14 @@ const Header = () => {
   const [_account, _setAccount] = useRecoilState(accountState);
 
   useEffect(() => {
-    accessToKaikas();
     initContext();
-    connectToMetamask();
+    getCVTBalance();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);
 
-  const initContext = () => {
+  const initContext = async () => {
     setContext({
-      hasKlaytn: typeof window.ethereum != "undefined",
+      isMetamask: window.ethereum.isMetaMask,
     });
   };
 
@@ -40,7 +41,7 @@ const Header = () => {
   };
 
   const connectToMetamask = () => {
-    if (typeof window.ethereum !== "undefined") {
+    if (window.ethereum.isMetaMask) {
       window.ethereum
         .request({
           method: "eth_requestAccounts",
@@ -51,16 +52,31 @@ const Header = () => {
           setActive(true);
           const account = result[0];
           web3.eth.getBalance(result[0]).then((balance) => {
-            _setAccount({
-              address: account,
-              balance: formatBalance(balance),
-              shortAddress: shortAddress(account),
+            balanceOf(account).then((cvtBalance) => {
+              _setAccount({
+                address: account,
+                balance: formatBalance(balance),
+                shortAddress: shortAddress(account),
+                cvtBalance: cvtBalance,
+              });
             });
           });
         })
         .catch((error) => {
           // If the request fails, the Promise will reject with an error.
         });
+    }
+  };
+
+  const disconnectFromMetamask = () => {
+    // disconnect from Metamask
+  };
+
+  const getCVTBalance = () => {
+    if (_account) {
+      balanceOf(_account.address).then((cvtBalance) => {
+        _setAccount({ ..._account, cvtBalance: cvtBalance });
+      });
     }
   };
 
@@ -75,10 +91,13 @@ const Header = () => {
       let account = window.klaytn.selectedAddress;
       let caver = new Caver(window.klaytn);
       caver.klay.getBalance(account).then((balance) => {
-        _setAccount({
-          address: account,
-          balance: formatBalance(balance),
-          shortAddress: shortAddress(account),
+        balanceOf(account).then((cvtBalance) => {
+          _setAccount({
+            address: account,
+            balance: formatBalance(balance),
+            shortAddress: shortAddress(account),
+            cvtBalance: cvtBalance,
+          });
         });
       });
     }
@@ -86,23 +105,27 @@ const Header = () => {
 
   return (
     <>
-      {context && !context.hasKlaytn && (
+      {context && !context.isMetamask && (
         <div className="alert alert-primary mb-0 font-size-sm">
-          Kaikas 지갑을 설치한 후 이용할 수 있습니다.
+          You can use it after installing your Metamask wallet.
           <a
-            href="https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en"
+            href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn"
             className="alert-link ml-5"
           >
-            설치하기
+            Install
           </a>
         </div>
       )}
-      <header className="navbar navbar-expand-lg navbar-spacer-y navbar-light mb-3">
+      <header className="navbar navbar-expand-lg navbar-spacer-y fixed-top mb-3">
         <div className="container">
           <div className="navbar-nav-wrap">
             <div className="navbar-brand-wrapper">
-              <Link className="navbar-brand" to="/" aria-label="Front">
-                <b>DAppO</b> DAO
+              <Link
+                className="navbar-brand text-black"
+                to="/"
+                aria-label="Front"
+              >
+                <b>The Last DAO</b>
               </Link>
             </div>
 
@@ -137,34 +160,54 @@ const Header = () => {
                     })}
                     to="/ballots"
                   >
-                    BALLOTS
+                    GOVERNANCE
                   </Link>
                 </li>
+                {/* <li className="nav-item">
+                  <Link
+                    className={classnames("nav-link", {
+                      active: location.pathname === "/funding",
+                    })}
+                    to="/funding"
+                  >
+                    FUNDINGS
+                  </Link>
+                </li> */}
                 {active && _account && (
-                  <li className="nav-item">
-                    <div className="h3 mt-2">
-                      <span className="badge badge-soft-dark">
-                        {_account.balance} MATIC |{" "}
-                        <span className="text-primary">
-                          {_account.shortAddress}
+                  <>
+                    <li className="nav-item">
+                      <div className="h3 mt-2">
+                        <span className="badge badge-soft-black">
+                          4,325.29 DAPPO |{" "}
+                          <span className="text-black">
+                            {_account.shortAddress}
+                          </span>
                         </span>
-                      </span>
-                    </div>
-                  </li>
+                      </div>
+                    </li>
+                    <li className="nav-item ml-5">
+                      <button
+                        className="btn btn-sm white btn-wallet-connect"
+                        onClick={() => disconnectFromMetamask()}
+                      >
+                        Disconnect
+                      </button>
+                    </li>
+                  </>
                 )}
                 {!active && (
                   <li className="nav-item">
-                    <button
+                    {/* <button
                       className="btn btn-sm btn-soft-secondary btn-wallet-connect"
                       onClick={() => connectToKaikas()}
                     >
-                      Connect to wallet
-                    </button>
+                      Connect to KaiKas
+                    </button> */}
                     <button
-                      className="btn btn-sm btn-soft-secondary btn-wallet-connect"
+                      className="btn btn-sm btn-soft-secondary btn-wallet-connect ml-2"
                       onClick={() => connectToMetamask()}
                     >
-                      Connect to wallet
+                      Connect to Metamask
                     </button>
                   </li>
                 )}

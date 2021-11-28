@@ -4,7 +4,7 @@ import { Link, useRouteMatch } from "react-router-dom";
 import AccountSideView from "./components/AccountSideView";
 
 const FundingDetailView = () => {
-  let match = useRouteMatch();
+  let match = useRouteMatch("/funding/detail/:id");
 
   const [funding, setFunding] = useState({});
 
@@ -66,7 +66,7 @@ const FundingDetailView = () => {
   return (
     <div className="container">
       <div className="row justify-content-md-center mt-15 mb-5">
-        <div className="col-lg-9">
+        <div className="col-lg-10">
           <div className="card">
             <div className="card-header">
               <h4 className="card-title">
@@ -99,7 +99,7 @@ const FundingDetailView = () => {
               <div className="row form-group">
                 <div className="col-md-4">
                   <label className="text-dark">
-                    <i className="tio-time mr-1"></i>투표 종료 시간
+                    <i className="tio-time mr-1"></i>Voting Closing Time
                   </label>
                 </div>
                 <div className="col-md-8">
@@ -108,9 +108,6 @@ const FundingDetailView = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="col-md-3">
-          <AccountSideView />
         </div>
       </div>
     </div>

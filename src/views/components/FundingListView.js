@@ -45,7 +45,7 @@ const FundingListView = () => {
     return fundings.map((item, index) => {
       return (
         <div class="col-md-4 mb-5" key={String(index)}>
-          <div class="card card-hover-shadow h-100">
+          <div class="card card-hover-shadow h-100 mt-5">
             <img src="logo512.png" class="card-img-top" alt="image" />
             <div class="card-body">
               <h1 class="card-title">{item.title}</h1>
@@ -57,8 +57,11 @@ const FundingListView = () => {
                 prefix={"$"}
                 class="h1 card-text mt-5 text-right"
               />
-              <div class="col text-center">
-                <Link to={`/funding/detail/${item.no}`} class="btn btn-primary">
+              <div class="col text-center mt-5">
+                <Link
+                  to={`/funding/detail/${item.no}`}
+                  class="btn btn-outline-secondary"
+                >
                   Details
                 </Link>
               </div>

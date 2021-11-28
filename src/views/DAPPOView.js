@@ -7,10 +7,8 @@ const CVTView = () => {
       <div className="page-header">
         <div className="row mt-5 align-items-end">
           <div className="col-lg-8">
-            <h2>안건</h2>
-            <p className="p-0 m-0">
-              CURG 거버넌스에서 진행하는 투표 안건들을 보여줍니다
-            </p>
+            <h2>Proposals</h2>
+            <p className="p-0 m-0">Show up Voting Proposals in DAppO DAO</p>
           </div>
           <div className="col-lg-4 text-right">
             <button type="button" className="btn btn-primary">

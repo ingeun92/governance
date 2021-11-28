@@ -53,13 +53,14 @@ const VoteCreateView = () => {
     let errors = {};
 
     if (amount === "") {
-      errors["amount"] = "수량을 입력해주세요.";
+      errors["amount"] = "Input Amount";
       hasError = true;
     } else if (!Number.isInteger(Number(amount))) {
-      errors["amount"] = "숫자만 입력 가능합니다.";
+      errors["amount"] = "Only Numbers";
       hasError = true;
     } else if (Number(amount) > Number(cvtToken)) {
-      errors["amount"] = "보유한 CVT 토큰 개수 만큼만 교환 가능 합니다.";
+      errors["amount"] =
+        "You can exchange only the number of CVT tokens you have.";
       hasError = true;
     }
 
@@ -97,12 +98,12 @@ const VoteCreateView = () => {
                       >
                         <i className="tio-chevron-left"></i>
                       </Link>
-                      투표권 생성
+                      Create Voting Rights
                     </h4>
                   </div>
                   {alarm && alarm.receipt.status && (
                     <div className="alert alert-soft-success card-alert">
-                      <label className="mb-0">투표권이 생성되었습니다.</label>
+                      <label className="mb-0">Created Voting Rights</label>
                       <span className="font-size-sm">
                         {alarm.receipt.transactionHash}
                       </span>
@@ -111,8 +112,8 @@ const VoteCreateView = () => {
                   {alarm && !alarm.receipt.status && (
                     <div className="alert alert-soft-danger card-alert">
                       <label className="mb-0">
-                        실패: 이미 투표를 완료했거나 투표시간이 지난 경우
-                        투표권을 생성할 수 없습니다
+                        Failed: If you've already voted or it's past voting
+                        time, you can't vote.
                       </label>
                       <span className="font-size-sm">
                         {alarm.receipt.transactionHash}
@@ -122,7 +123,7 @@ const VoteCreateView = () => {
                   <div className="card-body">
                     <div className="row form-group">
                       <div className="col-md-3">
-                        <label className="text-dark">이름</label>
+                        <label className="text-dark">Name</label>
                       </div>
                       <div className="col-md-9">
                         <span className="text-muted">{ballot.name_}</span>
@@ -131,7 +132,7 @@ const VoteCreateView = () => {
                     <div className="row form-group">
                       <div className="col-md-3">
                         <label className="text-dark">
-                          <i className="tio-ticket mr-1"></i>보유 투표권 수
+                          <i className="tio-ticket mr-1"></i>Voting Rights
                         </label>
                       </div>
                       <div className="col-md-9">
@@ -153,7 +154,7 @@ const VoteCreateView = () => {
                     <div className="row form-group">
                       <div className="col-md-3">
                         <label className="text-dark">
-                          <i className="tio-time mr-1"></i>투표 종료일
+                          <i className="tio-time mr-1"></i>Voting Closing Time
                         </label>
                       </div>
                       <div className="col-md-9">
@@ -163,12 +164,12 @@ const VoteCreateView = () => {
                     <div className="row">
                       <div className="col-md-6">
                         <label className="input-label">
-                          생성할 투표권 수량
+                          Number of Voting Rights to be generated
                         </label>
                       </div>
                       <div className="col-md-6 text-right">
                         <span className="input-label text-muted">
-                          현재 CVT : {cvtToken}
+                          Current CVT : {cvtToken}
                         </span>
                       </div>
                     </div>
@@ -185,7 +186,7 @@ const VoteCreateView = () => {
                           <p className="text-danger">{errors["amount"]}</p>
                         )}
                         <p className="bg-light p-2 mt-2">
-                          1 CVT는 1개의 투표권으로 교환됩니다.
+                          1 CVT is exchanged for 1 Voting Right.
                         </p>
                       </div>
                     </div>
@@ -195,7 +196,7 @@ const VoteCreateView = () => {
                           type="submit"
                           className="btn btn-sm btn-block btn-primary"
                         >
-                          투표권 생성
+                          Create Voting Rights
                         </button>
                       </div>
                       <div className="col-md-6">
@@ -203,7 +204,7 @@ const VoteCreateView = () => {
                           to={`/vote/proceed/${id}`}
                           className="btn btn-sm btn-block btn-soft-secondary"
                         >
-                          다음 단계로 <i className="tio-chevron-right ml-1"></i>
+                          Next Step <i className="tio-chevron-right ml-1"></i>
                         </Link>
                       </div>
                     </div>

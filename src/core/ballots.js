@@ -54,7 +54,7 @@ export const fetchBallots = async () => {
       let result = await getBallot(i);
       list = [...list, result];
 
-      if (i == 0) {
+      if (i === 0) {
         break;
       }
     }

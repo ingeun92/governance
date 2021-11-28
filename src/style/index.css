@@ -1,58 +1,167 @@
 /* header */
 header {
-    height: 70px;
+  height: 70px;
+}
+
+body {
+  background-color: rgb(50, 50, 50);
+  padding-top: 70px;
+}
+
+.pink {
+  color: rgb(220, 161, 177);
+}
+
+.white {
+  color: white;
+}
+
+.soft-black {
+  color: rgb(50, 50, 50);
+}
+
+.soft-black:hover {
+  color: rgb(50, 50, 50);
+}
+
+.white:hover {
+  color: rgb(50, 50, 50);
+}
+
+.background-pink {
+  background-color: rgb(220, 161, 177);
+}
+
+.background-white {
+  background-color: white;
+}
+
+.bg-gray {
+  background-color: gray;
+}
+
+.bg-success {
+  background-color: #c7f0e9;
+}
+
+.bg-finalize:hover {
+  background-color: #eff0c7;
+}
+
+.change-success {
+  background-color: #00c9a7;
+}
+
+.active {
+  color: black !important;
+}
+
+.nav-link {
+  color: black !important;
+}
+
+.nav-link:hover {
+  color: black !important;
+}
+
+.navbar {
+  background-color: rgb(220, 161, 177);
 }
 
 .navbar-brand {
-    color: #333 !important;
+  color: rgb(50, 50, 50) !important;
 }
 
 .btn-wallet-connect {
-    margin-top: 5px;
+  margin-top: 5px;
+}
+
+.btn-outline-secondary {
+  border-color: rgb(220, 161, 177);
+}
+
+.btn-outline-secondary:hover {
+  background-color: rgb(220, 161, 177);
+  border-color: rgb(220, 161, 177);
+}
+
+.form-control:focus {
+  border-color: rgb(220, 161, 177);
+}
+
+.badge-soft-black {
+  background-color: rgb(50, 50, 50);
+  color: white;
+}
+
+.btn-ghost-secondary:hover {
+  background-color: rgb(220, 161, 177);
+  color: rgb(50, 50, 50);
+}
+
+.card-go-success:hover {
+  background-color: #c7f0e9;
+}
+
+.card-go-danger:hover {
+  background-color: #ffc4d4;
+}
+
+.card-go-gray:hover {
+  background-color: rgb(214, 214, 214);
+}
+
+.card-go-title:hover {
+  transform: scale(1.1);
+}
+
+.card-go-title-finalize:hover {
+  transform: scale(1.1);
+  background-color: #feffc4;
 }
 
 /* home */
 #home-introduction {
-    margin-top: 100px;
-    margin-bottom: 100px;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 #home-ballots {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 .mt-15 {
-    margin-top: 6rem!important;
+  margin-top: 6rem !important;
 }
 
 .mb-15 {
-    margin-bottom: 6rem!important;
+  margin-bottom: 6rem !important;
 }
 
 .alert-link {
-    color: #fff;
-    text-decoration: underline;
+  color: #fff;
+  text-decoration: underline;
 }
 
 .Toastify__toast {
-    position: relative;
-    min-height: 50px !important;
-    box-sizing: border-box;
-    margin-bottom: 1rem;
-    padding: 8px 20px !important;
-    border-radius: 1px;
-    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: justify;
-        justify-content: space-between;
-    max-height: 800px;
-    overflow: hidden;
-    font-family: sans-serif;
-    cursor: pointer;
-    direction: ltr;
+  position: relative;
+  min-height: 50px !important;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  padding: 8px 20px !important;
+  border-radius: 1px;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  max-height: 800px;
+  overflow: hidden;
+  font-family: sans-serif;
+  cursor: pointer;
+  direction: ltr;
 }
 
 .Toastify__toast--info {
-    background: #377dff !important;
+  background: #377dff !important;
 }

@@ -24,19 +24,21 @@ const FundingView = () => {
       <div className="page-header">
         <div className="row mt-5 align-items-end">
           <div className="col-lg-8">
-            <h2>Funding</h2>
-            <p className="p-0 m-0">
-              Display up to 6 of the funding lists that are in progress on DAppO
+            <h2 class="pink">Funding</h2>
+            <p className="p-0 m-0 text-white">
+              Show up to 6 of the funding lists that are in progress on DAppO
             </p>
+          </div>
+          <div className="col-lg-4 text-right">
+            <Link to={"/create/funding"} className="btn background-pink white">
+              New Funding
+            </Link>
           </div>
         </div>
       </div>
-      <div className="row mt-5">
-        <div className="col-md-9">
+      <div className="row mt-5 justify-content-md-center">
+        <div className="col-md-10 text-center">
           <FundingListView />
-        </div>
-        <div className="col-md-3">
-          <AccountSideView />
         </div>
       </div>
     </div>

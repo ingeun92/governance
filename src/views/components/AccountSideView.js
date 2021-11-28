@@ -49,7 +49,7 @@ const AccountSideView = () => {
   };
 
   return (
-    <div className="card mb-3 bg-light">
+    <div className="card mb-3 bg-light mt-5">
       <div className="card-header">
         <h4 className="card-header-title">
           Account {account && "(" + account.shortAddress + ")"}
